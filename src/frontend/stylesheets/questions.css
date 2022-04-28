@@ -1,0 +1,133 @@
+@import '../../index.css';
+
+
+.questions-section{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.questions-section > * {
+    margin-bottom: 2rem;
+}
+
+.questions-heading{
+    border-bottom: 5px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+span{
+    cursor: pointer;
+  }
+
+input[type="radio"] {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--background-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+  
+  input[type="radio"]:focus { 
+    outline: none; 
+  }
+  
+  input[type="radio"]:checked { 
+    background-color: var(--primary-color);
+  }
+  
+  input[type="radio"]:checked ~ span:first-of-type {
+    color: var(--background-color);
+  }
+  
+  label span:first-of-type {
+    position: relative;
+    left: -21px;
+    font-size: 15px;
+    color: var(--primary-color);
+  }
+  
+  label span {
+    position: relative;
+    top: -10px;
+    cursor: pointer;
+  }
+
+.question-button{
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.question-button i{
+    padding: 0 0.5rem;
+    color: var(--background-color);
+}
+
+.stacked-list li {
+    border-left: 6px solid var(--primary-color);
+    padding: 1rem 1rem;
+    background-color:rgb(223, 198, 245) ;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.display__question h4{
+    margin-bottom: 1rem;
+}
+
+.display__timer, .question__button{
+    display: flex;
+    justify-content: space-between !important;
+    width: 85%;
+}
+
+.display__timer i{
+    color: var(--primary-color);
+}
+
+.question__button-small .question-button{
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+}
+
+.question__button-small {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .question__button-small {
+        display: block;
+    }
+    .question__button {
+        display: none;
+    }
+    .questions-section{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .questions-section{
+        width: 85%;
+    }
+}

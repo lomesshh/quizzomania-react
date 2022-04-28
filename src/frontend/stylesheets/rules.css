@@ -1,0 +1,46 @@
+@import '../../index.css';
+
+
+.rules-section{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.rules-section > * {
+    margin-bottom: 2rem;
+}
+
+.rule-button{
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.stacked-list p i{
+    padding-right: 1rem;
+    color: var(--primary-color);
+}
+
+.stacked-list p {
+    border-left: 6px solid var(--primary-color);
+    padding: 1rem 1rem;
+    background-color:rgb(223, 198, 245) ;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.rule-button i {
+    padding-left: 1rem;
+    color: var(--background-color);
+}
