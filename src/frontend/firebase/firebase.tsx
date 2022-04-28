@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDkh-LOOoe6AHCggORX3ZJapA0yD0SQdl0",
-  authDomain: "quizzomania-d9eee.firebaseapp.com",
-  projectId: "quizzomania-d9eee",
-  storageBucket: "quizzomania-d9eee.appspot.com",
-  messagingSenderId: "53546542049",
-  appId: "1:53546542049:web:879be37af05e48d2f6a8a0"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
 // Initialize Firebase
