@@ -1,24 +1,56 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { UserSignupObject, SignupSchema, UserSignupInitial, useAppDispatch } from './../../utility';
+import { handleUserSignup } from 'frontend/service/UserService';
 
 const Signup = () => {
+
+   const dispatch = useAppDispatch()
+   const navigate = useNavigate()
+
+   const [type, setType] = useState("password");
+   const [icon, setIcon] = useState("fa-solid fa-eye-slash");
+ 
+   const show = () => {
+     type === "password" ? setType("text") : setType("password");
+     icon === "fa-solid fa-eye"
+       ? setIcon("fa-solid fa-eye-slash")
+       : setIcon("fa-solid fa-eye");
+   };
+ 
+
   return (
     <div className="login__outer">
-        <form className="login signup">
+       <Formik
+       initialValues={UserSignupInitial}
+       validationSchema={SignupSchema}
+       onSubmit={(values: UserSignupObject) => {
+          const { name, email, password } = values;
+          dispatch(handleUserSignup(name, email, password, navigate))
+       }}
+       >
+        <Form className="login signup">
            <h1 className="login__title">Sign Up</h1>
            <div className="login__fields">
               <p >Name</p>
-              <input type="text" placeholder="Enter name" name="name" /><br />
+              <Field type="text" placeholder="Enter name" name="name" /><br />
+              <ErrorMessage name="name" render={msg => <div className='error__msg'>{msg}</div>} />
               <p >Email</p>
-              <input type="email" placeholder="Enter email" name="email" /><br />
+              <Field type="email" placeholder="Enter email" name="email" /><br />
+              <ErrorMessage name="email" render={msg => <div className='error__msg'>{msg}</div>} />
               <p >Password</p>
-              <input type="password" placeholder="Enter password" name="password" /><br />
+              <Field type={type} placeholder="Enter password" name="password" />
+              <i onClick={show} className={icon}></i><br />
+              <ErrorMessage name="password" render={msg => <div className='error__msg'>{msg}</div>} />
               <p >Confirm Password</p>
-              <input type="password" placeholder="Re-enter password" name="cpassword" />
+              <Field type="password" placeholder="Re-enter password" name="cpassword" />
+              <ErrorMessage name="cpassword" render={msg => <div className='error__msg'>{msg}</div>} />
            </div>
-            <Link className="login__button signup__button" to="/login">Sign Up</Link>
+               <button className="login__button signup__button" type="submit">Sign Up</button>
            <p>Already have an account? <Link to="/login">Login</Link></p>
-        </form>
+        </Form>
+        </Formik>
      </div>
   )
 }
