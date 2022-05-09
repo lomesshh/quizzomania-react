@@ -1,8 +1,9 @@
 import { Notify } from "frontend/component";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth, db } from "frontend/firebase/firebase";
-import { getUser, getToken, toggleLoader } from "frontend/redux/Slice/UserSlice";
+import { getUser, getToken, toggleLoader, handleSignout } from "frontend/redux/Slice/UserSlice";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
 
 
 export const handleUserSignup = (name : string, email: string, password: string, navigate: Function) => {
@@ -67,4 +68,31 @@ export const handleUserLogin = (email: string, password: string, navigate: Funct
             }
         }
     }
+}
+
+export const handleUserSignout = (navigate: Function) => {
+    return async (dispatch: any) => {
+        dispatch(toggleLoader(true));
+            const auth = getAuth();
+            signOut(auth).then(() => {
+                const tempUser = {
+                    uid: '',
+                    name: '',
+                    email: '',
+                    quiz: [],
+                    score: 0
+                }
+                console.log("logged out")
+                dispatch(handleSignout({token : "", user: tempUser}))
+                localStorage.removeItem("authToken");
+                localStorage.removeItem("authUser");
+                navigate("/");
+                Notify('Logged out successfully', 'success');
+                dispatch(toggleLoader(false));
+            }).catch((error) => {
+                console.log(error);
+                dispatch(toggleLoader(false));
+                Notify('Unable to logged out, try again later', 'error');
+            });
+    };
 }

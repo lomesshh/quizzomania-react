@@ -3,6 +3,7 @@
 
 .profile__section{
     width: 85%;
+    min-height: 90vh;
     margin: auto;
     margin-top: 3rem;
     margin-bottom: 3rem;

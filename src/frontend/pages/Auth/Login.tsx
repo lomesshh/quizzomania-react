@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../../stylesheets/authentication.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { UserLoginInitial, LoginSchema, UserLoginObject, useAppDispatch } from './../../utility';
+import { UserLoginInitial, UserLoginObject, useAppDispatch } from './../../utility';
 import { handleUserLogin } from 'frontend/service/UserService';
 
 
@@ -13,7 +13,7 @@ const Login = () => {
 
    const [type, setType] = useState("password");
    const [icon, setIcon] = useState("fa-solid fa-eye-slash");
- 
+
    const show = () => {
      type === "password" ? setType("text") : setType("password");
      icon === "fa-solid fa-eye"
@@ -25,8 +25,11 @@ const Login = () => {
     <div className="login__outer">
        <Formik
        initialValues={UserLoginInitial}
-       validationSchema={LoginSchema}
        onSubmit={(values: UserLoginObject) => {
+          if(!values.email && !values.password){
+             values.email = "carrysmith899@gmail.com"
+             values.password = "111111"
+          }
           const { email, password } = values
           dispatch(handleUserLogin(email, password, navigate))
        }}
@@ -43,6 +46,7 @@ const Login = () => {
               <ErrorMessage name="password" render={msg => <div className='error__msg'>{msg}</div>} />
            </div>
               <button type='submit' className="login__button">Log in</button> 
+              <button type='submit' className="login__button test__login">Test credentials</button> 
            <p>Don't have an account ?<Link to="/signup"> SignUp</Link></p>
         </Form>
         </Formik>
