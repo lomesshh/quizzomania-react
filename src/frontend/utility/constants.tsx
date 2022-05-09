@@ -29,3 +29,9 @@ export const SignupSchema = Yup.object().shape({
   email: "",
   password: "",
 }
+
+export const quizInitialObject = {
+  questions: [],
+  quizzID: "",
+  quizzName: "",
+}

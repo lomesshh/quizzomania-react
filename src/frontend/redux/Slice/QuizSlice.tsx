@@ -22,9 +22,13 @@ const QuizSlice = createSlice({
     getNextQuestion(state, action) {
       state.currQuestion = state.currQuestion + 1
       state.answeredQuestions = [ ...state.answeredQuestions ,action.payload]
+    },
+    quitQuiz(state, action){
+      state.answeredQuestions = action.payload
+      state.currQuestion = 1
     }
   },
 });
 
-export const { getQuiz, getNextQuestion } = QuizSlice.actions;
+export const { getQuiz, getNextQuestion, quitQuiz } = QuizSlice.actions;
 export default QuizSlice;

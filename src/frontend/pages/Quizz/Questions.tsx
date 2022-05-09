@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import "../../stylesheets/questions.css"
 import { Link } from 'react-router-dom';
-import { useAppSelector } from 'frontend/utility';
+import { quizInitialObject, useAppSelector } from 'frontend/utility';
 import { quizOption } from './../../utility/interface';
 import { useAppDispatch } from './../../utility/hooks';
-import { getNextQuestion } from 'frontend/redux/Slice/QuizSlice';
+import { getNextQuestion, quitQuiz } from 'frontend/redux/Slice/QuizSlice';
 import { Notify } from 'frontend/component';
 
 const Questions = () => {
@@ -49,7 +49,7 @@ const Questions = () => {
             </ul>
         </div>
         <div className="question__button">
-            <button className="question-button"><i className="fa-solid fa-arrow-right-from-bracket"> </i> Quit</button>
+        <Link to="/category"><button className="question-button" onClick={() => dispatch(quitQuiz([]))}><i className="fa-solid fa-arrow-right-from-bracket"> </i> Quit</button></Link>
             <button className="question-button" onClick={nextQuestionHandler}>Next <i className="fa-solid fa-arrow-right-long"></i></button>
         </div>
         <div className="question__button-small">
