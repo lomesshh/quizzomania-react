@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../stylesheets/profile.css"
+import { useAppSelector } from 'frontend/utility';
+
+interface UserData {
+    email: string
+    name: string
+    quiz: any
+    score: number
+    uid: string
+  }
 
 const Profile = () => {
+    const { token } = useAppSelector(state => state.user)
+    const [user, setUser] = useState<UserData | null>(null)
+
+    useEffect(() => {
+        const quizzuser = JSON.parse(localStorage.getItem('authUser')  || '{}')
+        setUser(quizzuser)
+    }, [token])
+
   return (
     <div className="profile__section">
         
@@ -13,23 +30,17 @@ const Profile = () => {
 
         <div className="profile__info">
             <div className="profile__name">
-                <h1>Lomesh Badhe</h1>
-                <p>Full stack developer</p>
-                <button className="large__screen-button">Edit <i className="fa-solid fa-pen"></i></button>
-                <button className="small__screen-button"><i className="fa-solid fa-pen"></i></button>
+                <h1>{user?.name}</h1>
+                <p>{user?.email}</p>
+                <button className="large__screen-button">Logout <i className="fa-solid fa-arrow-right-from-bracket"></i></button>
+                <button className="small__screen-button"><i className="fa-solid fa-arrow-right-from-bracket"></i></button>
             </div>
             <div className="profile__about">
                 <h4>Name : </h4>
-                <p>Lomesh Badhe</p>
+                <p>{user?.name}</p>
 
                 <h4>Email : </h4>
-                <p>badhelomesh@gmail.com</p>
-                
-                <h4>Mobile No : </h4>
-                <p>+91 9933227766</p>
-
-                <h4>Profession : </h4>
-                <p>Full stack developer</p>
+                <p>{user?.email}</p>
             </div>
         </div>
     </div>

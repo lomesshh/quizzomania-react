@@ -3,6 +3,7 @@ import "../../stylesheets/rules.css"
 import { Link } from 'react-router-dom';
 
 const Rules = () => {
+
   return (
     <div className="rules-section">
         <h1 className="rules-heading">Rules for the quiz</h1>

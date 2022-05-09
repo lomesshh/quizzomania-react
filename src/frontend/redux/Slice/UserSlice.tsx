@@ -25,11 +25,15 @@ const UserSlice = createSlice({
         },
         toggleLoader(state, action){
             state.loader = action.payload
-        }
+        },
+        handleSignout(state, action){
+            state.token = action.payload.token
+            state.user = action.payload.user
+        },
     }
 })
 
 
-export const {getUser, getToken, toggleLoader} = UserSlice.actions
+export const {getUser, getToken, toggleLoader, handleSignout} = UserSlice.actions
 
 export default UserSlice

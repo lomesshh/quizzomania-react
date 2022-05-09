@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../../stylesheets/homepage.css"
+import { useAppSelector } from 'frontend/utility';
 
 const Homepage = () => {
+  const { token } = useAppSelector(state => state.user)
+
   return (
     <div>
         <div className="hero-section">
@@ -10,7 +13,7 @@ const Homepage = () => {
             <h1>Empowering and inspiring all students to excel as life long learners.</h1>
             <p>Be transparent. Let's build a community that allows hard questions and honest conversations so we can stir up transformation in one another</p>
             <div className="hero-button">
-                <Link to="/category"><button>Start solving</button></Link>
+                <Link to={`${token ? `/category` : `/login`}`}><button>Start solving</button></Link>
             </div>
         </div>
         <div className="hero-image">

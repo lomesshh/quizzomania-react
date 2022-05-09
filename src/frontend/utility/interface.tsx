@@ -23,3 +23,21 @@ export interface UserLoginObject {
     email: string,
     password: string
 }
+
+export interface quizObject {
+    questions : any[],
+    quizzID : string,
+    quizzName : string
+}
+
+export interface UserSliceQuizObject {
+    quiz: quizObject,
+    currQuestion : number,
+    answeredQuestions : any[],
+    totalScore : number
+}
+
+export interface quizOption {
+    isRight : boolean,
+    value: string
+}
