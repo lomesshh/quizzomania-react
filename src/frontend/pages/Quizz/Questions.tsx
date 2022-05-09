@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../../stylesheets/questions.css"
 import { Link } from 'react-router-dom';
-import { quizInitialObject, useAppSelector } from 'frontend/utility';
+import { useAppSelector } from 'frontend/utility';
 import { quizOption } from './../../utility/interface';
 import { useAppDispatch } from './../../utility/hooks';
 import { getNextQuestion, quitQuiz } from 'frontend/redux/Slice/QuizSlice';

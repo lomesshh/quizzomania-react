@@ -1,8 +1,7 @@
 import { Notify } from "frontend/component";
-import { auth, db } from "frontend/firebase/firebase";
+import {  db } from "frontend/firebase/firebase";
 import { toggleLoader } from "frontend/redux/Slice/UserSlice";
 import { doc, getDoc } from "firebase/firestore";
-import { getAuth } from 'firebase/auth';
 import { getQuiz } from "frontend/redux/Slice/QuizSlice";
 
 
