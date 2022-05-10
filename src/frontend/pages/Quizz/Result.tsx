@@ -51,7 +51,7 @@ const Result = () => {
     } else {
       navigate("/");
     }
-  }, []);
+  }, [user.uid, quiz, navigate, answeredQuestions, dispatch]);
 
   return (
     <div className="questions-section">
