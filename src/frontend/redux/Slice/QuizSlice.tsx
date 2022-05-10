@@ -7,9 +7,9 @@ const initialState: UserSliceQuizObject = {
     quizzID: "",
     quizzName: "",
   },
-  currQuestion : 1,
-  answeredQuestions : [],
-  totalScore : 0
+  currQuestion: 1,
+  answeredQuestions: [],
+  totalScore: 0,
 };
 
 const QuizSlice = createSlice({
@@ -20,15 +20,27 @@ const QuizSlice = createSlice({
       state.quiz = action.payload;
     },
     getNextQuestion(state, action) {
-      state.currQuestion = state.currQuestion + 1
-      state.answeredQuestions = [ ...state.answeredQuestions ,action.payload]
+      state.currQuestion = state.currQuestion + 1;
+      state.answeredQuestions = [...state.answeredQuestions, action.payload];
     },
-    quitQuiz(state, action){
-      state.answeredQuestions = action.payload
-      state.currQuestion = 1
-    }
+    quitQuiz(state, action) {
+      state.answeredQuestions = action.payload;
+      state.currQuestion = 1;
+    },
+    resetQuiz(state) {
+      const tempObj = {
+        questions: [],
+        quizzID: "",
+        quizzName: "",
+      };
+      state.quiz = tempObj;
+      state.currQuestion = 1;
+      state.answeredQuestions = [];
+      state.totalScore = 0;
+    },
   },
 });
 
-export const { getQuiz, getNextQuestion, quitQuiz } = QuizSlice.actions;
+export const { getQuiz, getNextQuestion, quitQuiz, resetQuiz } =
+  QuizSlice.actions;
 export default QuizSlice;

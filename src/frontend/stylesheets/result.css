@@ -94,6 +94,11 @@ input[type="radio"] {
     width: 100%;
 }
 
+.not__selected{
+    color: red;
+    margin-bottom: 0.3rem;
+}
+
 /* correct answer */
 
 .stacked-list .correct__answer label > *,
