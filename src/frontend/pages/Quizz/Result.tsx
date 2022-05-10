@@ -1,14 +1,18 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "../../stylesheets/result.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { QuestionType, quizOption, useAppSelector } from "frontend/utility";
 import { useAppDispatch } from "./../../utility/hooks";
 import { resetQuiz } from "frontend/redux/Slice/QuizSlice";
+import { addQuizToUserHandler } from "frontend/service/QuizService";
 
 const Result = () => {
   const { quiz, answeredQuestions } = useAppSelector((state) => state.quiz);
+  const { user } = useAppSelector((state) => state.user);
+
   const totalScore = useRef(0);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   if (answeredQuestions.length !== 0) {
     let total = 0;
@@ -38,6 +42,16 @@ const Result = () => {
       return "";
     }
   };
+
+  useEffect(() => {
+    if (answeredQuestions !== []) {
+      dispatch(
+        addQuizToUserHandler(user.uid, totalScore.current, quiz, navigate)
+      );
+    } else {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="questions-section">

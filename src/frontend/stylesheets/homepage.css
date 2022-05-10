@@ -165,6 +165,12 @@ a{
   }
 
   @media screen and (max-width: 1000px) {
+    .nav-option ul {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
     .hero-info button {
       margin-bottom: 2rem;
     }
@@ -195,6 +201,20 @@ a{
       flex-wrap: wrap;
     }
   }
+
+  
+@media screen and (max-width: 470px) {
+  .nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .nav-option {
+    margin: 0 auto;
+  }
+}
+
 
   @media screen and (max-width: 350px) {
     .hero-info h1{
