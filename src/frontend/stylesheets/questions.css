@@ -87,6 +87,10 @@ input[type="radio"] {
     align-items: center;
 }
 
+.display__question li {
+    cursor: pointer;
+}
+
 .display__question h4{
     margin-bottom: 1rem;
 }

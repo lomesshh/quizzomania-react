@@ -41,3 +41,9 @@ export interface quizOption {
     isRight : boolean,
     value: string
 }
+
+export interface QuestionType {
+    question: string,
+    points: number,
+    options: quizOption[]
+}
