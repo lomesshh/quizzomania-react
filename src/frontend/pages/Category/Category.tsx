@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../stylesheets/category.css";
 import { useNavigate } from "react-router-dom";
 import { getQuizHandler } from "./../../service/QuizService";
 import { useDispatch } from "react-redux";
+import { resetQuiz } from "frontend/redux/Slice/QuizSlice";
 
 const Category = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetQuiz());
+  }, [dispatch]);
 
   return (
     <div>

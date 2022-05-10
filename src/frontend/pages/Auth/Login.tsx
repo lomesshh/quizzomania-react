@@ -15,6 +15,7 @@ const Login = () => {
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState("fa-solid fa-eye-slash");
+  const [testUser, setTestUser] = useState(false);
 
   const show = () => {
     type === "password" ? setType("text") : setType("password");
@@ -28,9 +29,10 @@ const Login = () => {
       <Formik
         initialValues={UserLoginInitial}
         onSubmit={async (values: UserLoginObject) => {
-          if (!values.email && !values.password) {
+          if (testUser) {
             values.email = "carrysmith899@gmail.com";
             values.password = "111111";
+            setTestUser(!testUser);
           }
           const { email, password } = values;
           await dispatch(handleUserLogin(email, password, navigate));
@@ -59,7 +61,11 @@ const Login = () => {
           <button type="submit" className="login__button">
             Log in
           </button>
-          <button type="submit" className="login__button test__login">
+          <button
+            type="submit"
+            className="login__button test__login"
+            onClick={() => setTestUser(!testUser)}
+          >
             Test credentials
           </button>
           <p>
