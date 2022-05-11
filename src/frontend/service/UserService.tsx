@@ -30,7 +30,7 @@ export const handleUserSignup = (
         password
       );
       const resUser: any = response.user;
-      const { accessToken, uid } = resUser;
+      const { uid } = resUser;
       const userObject = {
         uid: uid,
         name: name,
@@ -39,8 +39,6 @@ export const handleUserSignup = (
         score: 0,
       };
       await setDoc(doc(db, "users", uid), userObject);
-      dispatch(getToken(accessToken));
-      dispatch(getUser(userObject));
       Notify("Signup successful, please login to continue", "success");
       dispatch(toggleLoader(false));
       navigate("/login");
@@ -50,6 +48,7 @@ export const handleUserSignup = (
         dispatch(toggleLoader(false));
       } else {
         Notify("Unable to signup, try again later", "warning");
+        dispatch(toggleLoader(false));
       }
     }
   };

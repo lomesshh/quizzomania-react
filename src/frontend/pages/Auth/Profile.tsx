@@ -4,6 +4,10 @@ import { useAppSelector } from "frontend/utility";
 import { useAppDispatch } from "./../../utility/hooks";
 import { handleSignout } from "frontend/redux/Slice/UserSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { Chart as ChartJS, ArcElement, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Legend);
 
 interface UserData {
   email: string;
@@ -19,6 +23,28 @@ const Profile = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  let totalScore = user.quiz.length * 250;
+  let wrongScore = totalScore - Number(user.score);
+
+  let correctPercentage = (Number(user.score) / totalScore) * 100;
+  let wrongPercentage = (wrongScore / totalScore) * 100;
+
+  const data = {
+    labels: [
+      `${correctPercentage.toFixed(2)}% Correct`,
+      `${wrongPercentage.toFixed(2)}% Wrong`,
+    ],
+    datasets: [
+      {
+        label: "Your accuracy rate",
+        data: [correctPercentage.toFixed(2), wrongPercentage.toFixed(2)],
+        backgroundColor: ["rgba(59, 221, 102, 0.2)", "rgba(229, 41, 82, 0.2)"],
+        borderColor: ["#45d871", "#d02d50"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   useEffect(() => {
     const quizzuser = JSON.parse(localStorage.getItem("authUser") || "{}");
     setCurrUser(quizzuser);
@@ -28,10 +54,8 @@ const Profile = () => {
     <div className="profile__section">
       <div className="profile__image">
         <div className="image__outer">
-          <img
-            src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1651151558/quizzomania/profileImg_cfof7u.png"
-            alt="profile-img"
-          />
+          <h3>Your accuracy rate</h3>
+          <Pie data={data} />
         </div>
       </div>
 

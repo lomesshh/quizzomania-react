@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../stylesheets/leaderboard.css";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "frontend/utility";
+import { useAppDispatch } from "./../../utility/hooks";
+import { getAllUserHandler } from "frontend/service/UserService";
 
 const Leaderboard = () => {
   const { allUsers } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
   const getClassName = (index: number) => {
     if (index === 0) {
@@ -17,6 +20,10 @@ const Leaderboard = () => {
       return "";
     }
   };
+
+  useEffect(() => {
+    dispatch(getAllUserHandler());
+  }, [dispatch]);
 
   return (
     <div className="questions-section">
