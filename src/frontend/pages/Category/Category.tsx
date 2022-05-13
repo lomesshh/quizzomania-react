@@ -39,7 +39,7 @@ const Category = () => {
               <h5
                 onClick={() =>
                   dispatch(
-                    getQuizHandler(navigate, "pmCzn6ogWFaYHUzsX9gF") as any
+                    getQuizHandler(navigate, "VirVB93a2ZDK6uKIbVxN") as any
                   )
                 }
               >
@@ -66,7 +66,7 @@ const Category = () => {
               <h5
                 onClick={() =>
                   dispatch(
-                    getQuizHandler(navigate, "lZpd4rPgBReS6rnpba5O") as any
+                    getQuizHandler(navigate, "jbcaVKesDBxwM45Orekc") as any
                   )
                 }
               >
@@ -91,7 +91,7 @@ const Category = () => {
               <h5
                 onClick={() =>
                   dispatch(
-                    getQuizHandler(navigate, "rjDyP5690kGwSCdkdoI8") as any
+                    getQuizHandler(navigate, "qoY3AieRFUhmyRGGiBKj") as any
                   )
                 }
               >
@@ -118,7 +118,7 @@ const Category = () => {
               <h5
                 onClick={() =>
                   dispatch(
-                    getQuizHandler(navigate, "bhh97Q5YCvQMiTvDAgZe") as any
+                    getQuizHandler(navigate, "TX6QHMR4ZzDhCV3CcYRe") as any
                   )
                 }
               >
