@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 function App() {
   const { loader } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
 
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -34,9 +35,11 @@ function App() {
     dispatch(getAllUserHandler());
   }, [dispatch]);
 
+  console.log(pathname);
+
   return (
     <div className="App">
-      <ScrollToTop />
+      {pathname !== "/result" && <ScrollToTop />}
       <Nav />
       <Routelist />
       <Footer />
