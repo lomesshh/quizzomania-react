@@ -33,7 +33,6 @@ This is a quiz app in which you can play multiple quizzes on different technolog
    - Rule page
    - MCQ based Quiz Question Page
    - Result Page with Answers & Score
-   - Address management
    - Login / Logout
    - Signup
    - User Profile page
