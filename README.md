@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://shoemall.netlify.app/" rel="noopener" target="_blank"><img width="150" src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1647240006/shoemall/logo_rhszkc.png" alt="Material-UI logo"></a></p>
+  <a href="https://quizzomania.netlify.app/" rel="noopener" target="_blank"><img width="150" src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1651151558/quizzomania/quizzlogo_mjesmc.png" alt="Material-UI logo"></a></p>
 </p>
 
-<h1 align="center"><b>Shoemall</b></h1>
+<h1 align="center"><b>Quizzomania</b></h1>
 
 <div align="center">
-A Shoemall is a website that allows you to buy shoes & flip flops online. we have variety of categories at our shoemall just visit product listing page you will see all products. apply filters as per your need and in just few clicks you can buy any products from our website. shoemall can accept all kind of payment like debit/credit card, UPI etc.
+This is a quiz app in which you can play multiple quizzes on different technologies like ReactJS, AngularJS, etc. In the quiz, each question has a specific given time if that timer expired you will be redirected to the next question. On your profile page, you can see each quiz you played and its score. you can also see your accuracy rate on your profile page. the leaderboard is also available in which you can see the top5 participants with their scores.
 </div><br/>
 
 
@@ -14,14 +14,10 @@ A Shoemall is a website that allows you to buy shoes & flip flops online. we hav
 
 ![reactjs](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
 ![react-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
-![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
-
-**Payment Gateway:**
-
-![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)
 
 **Deployed On:**
 
@@ -33,52 +29,46 @@ A Shoemall is a website that allows you to buy shoes & flip flops online. we hav
 
 ## Screens ( All screens are responsive )
    - Homepage
-   - Product Listing Page with Filters
-   - Single Product Page
-   - Cart Management
-   - Wishlist Management
+   - Quiz Category page
+   - Rule page
+   - MCQ based Quiz Question Page
+   - Result Page with Answers & Score
    - Address management
    - Login / Logout
    - Signup
    - User Profile page
-   - Checkout
-   - Order summary
+   - Leaderboard
 
 
 ## 🚀 Features
-- Login/Signup User Account
-- Product Filters Based on Price, Category, Ratings | Sort By
-- Product Search
-- Products Pagination (Default 6 Products Per Page)
-- Wishlist Add/Remove Items
-- Cart Add/Remove Items | Update Quantities
-- Address management
-- Order summary
-- Coupons provided for discount
-- Razorpay payment gateway
-- My orders
-- Order details of all ordered item
-- Darkmode available
+  - Login/Signup User Account
+  - Quizzes by different category
+  - Attempt Quiz
+  - Timer for each question
+  - Result with all correct options
+  - Leaderboard ( Top 5 )
+  - Personal Accuracy rate
+  - Quizzes played by user
 
 
 ## Live
-[Shoemall](https://shoemall.netlify.app/) 🚀
+[Shoemall](https://quizzomania.netlify.app/) 🚀
 
 
-## Glimpses of Shoemall 🙈 :
+## Glimpses of Quizzomania 🙈 :
 
 <table>
   <tr>
-    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1648705428/shoemall/Screenshot_27_n6nq14.png" alt="mockup" /></td>
-    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1648705427/shoemall/Screenshot_28_jgxs95.png" alt="mockups" /></td>
+    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1652680272/quizzomania/Screenshot_106_pgmxvp.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1652680273/quizzomania/Screenshot_107_krgd7b.png" alt="mockups" /></td>
   </tr>
   <tr>
-    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1648705428/shoemall/Screenshot_36_vojv7y.png" alt="mockup" /></td>
-    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1648705427/shoemall/Screenshot_29_bvowon.png" alt="mockups" /></td>
+    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1652680272/quizzomania/Screenshot_109_ibenvk.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1652680272/quizzomania/Screenshot_111_grwbr9.png" alt="mockups" /></td>
   </tr>
   <tr>
-    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1648705426/shoemall/Screenshot_30_v3fl56.png" alt="mockup" /></td>
-    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1648705427/shoemall/Screenshot_32_q3q3gb.png" alt="mockups" /></td>
+    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1652680271/quizzomania/Screenshot_112_peerdr.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/dgwzpbj4k/image/upload/v1652680272/quizzomania/Screenshot_114_t48jlr.png" alt="mockups" /></td>
   </tr>
 </table>
 <h2>📬 Contact</h2>
