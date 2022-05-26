@@ -116,28 +116,23 @@ export const handleUserSignout = (navigate: Function) => {
 
 export const getUserHandler = (uid: string) => {
   return async (dispatch: any) => {
-    dispatch(toggleLoader(true));
     try {
       const docRef = doc(db, "users", uid);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
         dispatch(getUser(docSnap.data()));
-        dispatch(toggleLoader(false));
       } else {
         console.log("No user found");
-        dispatch(toggleLoader(false));
       }
     } catch (error) {
       console.log(error);
-      dispatch(toggleLoader(false));
     }
   };
 };
 
 export const getAllUserHandler = () => {
   return async (dispatch: any) => {
-    dispatch(toggleLoader(true));
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       let tempArr: any = [];
@@ -145,10 +140,8 @@ export const getAllUserHandler = () => {
         tempArr.push(doc.data());
       });
       await dispatch(getAllUser(tempArr));
-      dispatch(toggleLoader(false));
     } catch (error) {
       console.log(error);
-      dispatch(toggleLoader(false));
     }
   };
 };
